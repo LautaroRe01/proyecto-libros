@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const methodOverride = require('method-override');
 const app = express();
 
 // Configuración y carga de variables de entorno
@@ -51,6 +52,16 @@ db.sequelize.sync()
 
     // Configuración de archivos estáticos
     app.use(express.static(path.join(__dirname, '../public')));
+
+    // Usa el enrutador principal
+    const mainRouter = require('./main-router');
+    app.use('/api', mainRouter); // Puedes personalizar la ruta base, en este caso, '/api'
+
+    // Middleware para 'method-override'
+    app.use(methodOverride('_method'));
+
+    // Middleware para manejar datos de formularios
+    app.use(express.urlencoded({ extended: true }));
 
     // Escucha en el puerto
     const port = process.env.PORT || 3306;

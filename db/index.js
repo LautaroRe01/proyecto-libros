@@ -6,7 +6,6 @@ const config = require('./config');
 const sequelize = new Sequelize(config.development.database, config.development.username, config.development.password, {
   host: config.development.host,
   dialect: 'mysql', // Ajusta según tu base de datos (puede ser 'postgres', 'sqlite', etc.)
-  transactionType: 'IMMEDIATE', // Puede ser necesario para algunas bases de datos
   logging: false, // Desactiva el logging para evitar mensajes innecesarios en la consola
 });
 
