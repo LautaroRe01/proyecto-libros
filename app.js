@@ -65,7 +65,7 @@ db.sequelize.sync()
     app.use(express.urlencoded({ extended: true }));
 
     // Escucha en el puerto
-    const port = process.env.PORT || 3307;
+    const port = process.env.PORT || 3306;
     app.listen(port, () => {
       console.log(`Servidor Express escuchando en http://localhost:${port}`);
     });
