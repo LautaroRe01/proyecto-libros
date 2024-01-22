@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 const methodOverride = require('method-override');
 const app = express();
 
@@ -64,7 +65,7 @@ db.sequelize.sync()
     app.use(express.urlencoded({ extended: true }));
 
     // Escucha en el puerto
-    const port = process.env.PORT || 3306;
+    const port = process.env.PORT || 3307;
     app.listen(port, () => {
       console.log(`Servidor Express escuchando en http://localhost:${port}`);
     });
@@ -77,3 +78,8 @@ db.sequelize.sync()
   .catch((error) => {
     console.error('Error al sincronizar la base de datos:', error);
   });
+
+  app.set('view engine','ejs')
+  app.set('view', [
+    path.join(__dirname, './src/views'),
+  ])

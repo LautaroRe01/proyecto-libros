@@ -2,11 +2,11 @@
 const { Sequelize } = require('sequelize');
 const config = require('./config');
 
-// Conexión a la base de datos
 const sequelize = new Sequelize(config.development.database, config.development.username, config.development.password, {
   host: config.development.host,
-  dialect: 'mysql', // Ajusta según tu base de datos (puede ser 'postgres', 'sqlite', etc.)
-  logging: false, // Desactiva el logging para evitar mensajes innecesarios en la consola
+  dialect: 'mysql',  
+  transactionType: 'IMMEDIATE',
+  logging: false,
 });
 
 // Importa tus modelos

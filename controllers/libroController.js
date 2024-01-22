@@ -5,6 +5,7 @@ const libroController = {
     try {
       const libros = await Libro.findAll();
       res.json(libros);
+      res.render ('home', {'libros':libros})
     } catch (error) {
       console.error('Error al obtener todos los libros:', error);
       res.status(500).json({ error: 'Error interno del servidor' });

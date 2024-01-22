@@ -6,6 +6,15 @@
     <title>Proyecto Libros</title>
 </head>
 <body>
+
+    <% libros.forEach(libro => { %>
+        <article>
+            <p>Libro: <%= libro.nombre %></p>
+            <p>Autor: <%= libro.autor %></p>
+        </article>
+    <% }); %>
+
     Soy Proyecto Libros
+
 </body>
 </html>
