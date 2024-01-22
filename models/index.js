@@ -15,6 +15,6 @@ db.sequelize = sequelize;
 db.Autor = require('./autor')(sequelize, Sequelize);
 db.Libro = require('./libro')(sequelize, Sequelize);
 
-// Define relaciones entre modelos si es necesario
+
 
 module.exports = db;
